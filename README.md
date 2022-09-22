@@ -13,3 +13,11 @@
   ```shell
    wget https://raw.githubusercontent.com/wdkGitHub/MacFolderRenameZh/main/zhname && mv ./zhname /usr/local/bin && chmod +x /usr/local/bin/zhname && source ~/.bash_profile 
   ```
+
+ 
+
+![](./images/1.png)
+ 
+![命名中文](./images/2.jpeg)
+ 
+![恢复](./images/3.png)
