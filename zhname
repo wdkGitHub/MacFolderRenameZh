@@ -5,16 +5,14 @@ if [[ "-h" == "$1" ]]; then
 	echo "       rename : zhname  source name"
 	echo "       restore: zhname  source"
 	echo "命名文件夹为中文： 命令 目标文件夹参数 中文名参数"
-	echo "恢复 原来 文件名： 命令 目标文件夹(命名为中文后带后缀.localized)"
+	echo "恢复 原来 文件名： 命令 目标文件夹(命名为中文后带后缀${_SUFFIX})"
 elif [[ -d $1 ]]; then
 	if [[ $# -eq 1 ]]; then
-		rm -rf "./$1/.localized" && mv "$1" "${1%*.localized}"
-		echo ${1%*.localized}
+		rm -rf "./$1/${_SUFFIX}" && mv "$1" "${1%*.localized}"
 	elif [[ $# -eq 2 ]]; then
-		TEMP0="./$1.localized"
-		TEMP1="${TEMP0}/.localized"
+		TEMP0="./$1${_SUFFIX}"
+		TEMP1="${TEMP0}/${_SUFFIX}"
 		mv "./$1" "${TEMP0}" && mkdir "${TEMP1}" && echo "\"$1\"=\"$2\";" >>"${TEMP1}/zh.strings"
-		echo $1${_SUFFIX}
 	else
 		echo "Parameter error"
 	fi
